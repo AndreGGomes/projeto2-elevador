@@ -29,6 +29,7 @@ architecture sim of top_tb is
   signal el1_floor, el2_floor, el3_floor : std_logic_vector(w-1 downto 0);
   signal el1_status, el2_status, el3_status : std_logic_vector(1 downto 0);
   signal el1_dr, el2_dr, el3_dr : std_logic;
+  signal sim_ended         : boolean := false;
 
 begin
 
@@ -45,7 +46,7 @@ begin
   -- Clock generation
   clk_process : process
   begin
-    while true loop
+    while not sim_ended loop
       clk <= '0'; wait for CLK_PERIOD/2;
       clk <= '1'; wait for CLK_PERIOD/2;
     end loop;
@@ -59,8 +60,8 @@ begin
     report "=== SYSTEM TEST START ===";
     
     -- 1. Press 'UP' button at Floor 4
-    report "Action: Call UP at Floor 4";
-    out_kb_up <= (4 => '1', others => '0');
+    report "Action: Call UP at Floor 4 and 6";
+    out_kb_up <= (4 => '1', 6 => '1', others => '0');
     
     -- Hold button for a few clocks to ensure it's caught
     wait for CLK_PERIOD * 2;
@@ -70,18 +71,33 @@ begin
     -- Elevator 1 starts at 0. It should go 0 -> 1 -> 2 -> 3 -> 4.
     -- This takes time (physically), so we wait.
     
-    wait for CLK_PERIOD * 100; 
+    wait for CLK_PERIOD * 20; 
     
     -- Check if it arrived
-    assert unsigned(el1_floor) = 4 report "FAIL: Elevator did not arrive at floor 4" severity warning;
+    assert unsigned(el1_floor) = 6 report "FAIL: Elevator did not arrive at floor 6" severity warning;
     
-    if unsigned(el1_floor) = 4 then
-        report "SUCCESS: Elevator arrived at floor 4!";
+    if unsigned(el1_floor) = 6 then
+        report "SUCCESS: Elevator arrived at floor 6!";
     else
         report "STATUS: Elevator is currently at floor " & integer'image(to_integer(unsigned(el1_floor)));
     end if;
 
+    report "Action: Call UP at Floor 2 to go up and 1 to go down";
+
+    out_kb_up <= (2 => '1', others => '0');
+    out_kb_down <= (4 => '1', 9 => '1', others => '0');
+
+    wait for CLK_PERIOD * 2; 
+
+    out_kb_up <= (others => '0');
+    out_kb_down <= (others => '0');
+    
+    wait for CLK_PERIOD * 40; 
+
     report "=== SYSTEM TEST END ===";
+
+    sim_ended <= true;
+
     wait;
   end process;
 

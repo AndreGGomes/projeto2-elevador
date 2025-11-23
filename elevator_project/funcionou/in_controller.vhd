@@ -195,7 +195,7 @@ begin
                 else
                     -- Com chamadas
                     if intention_int = "10" then -- Intenção de subir
-                        if status_int = "10" or status_int = "00" then
+                        if status_int = "10" then
                             -- Verificar chamadas acima
                             left_floors := (others => '0');
                             for i in next_floor_int + 1 to 31 loop
@@ -211,7 +211,7 @@ begin
                                 dn_int <= '1';
                                 up_int <= '0';
                             end if;
-                        elsif status_int = "01" then
+                        elsif status_int = "01" or status_int = "00" then
                             -- Verificar chamadas abaixo
                             left_floors := (others => '0');
                             for i in 0 to next_floor_int - 1 loop
@@ -229,7 +229,7 @@ begin
                             end if;
                         end if;
                     elsif intention_int = "01" then -- Intenção de descer
-                        if status_int = "01" or status_int = "00" then
+                        if status_int = "01" then
                             -- Verificar chamadas abaixo
                             left_floors := (others => '0');
                             for i in 0 to next_floor_int - 1 loop
@@ -245,7 +245,7 @@ begin
                                 dn_int <= '0';
                                 up_int <= '1';
                             end if;
-                        elsif status_int = "10" then
+                        elsif status_int = "10" or status_int = "00" then
                             -- Verificar chamadas acima
                             left_floors := (others => '0');
                             for i in next_floor_int + 1 to 31 loop
