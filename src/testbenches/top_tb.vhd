@@ -96,11 +96,14 @@ begin
     wait for CLK_PERIOD * 20;
     
     report "=== TESTE 2: Chamadas externas simples ===";
-    
+    report "||Elevador 1: " & integer'image(to_integer(unsigned(el1_floor)));
+    report "||Elevador 2: " & integer'image(to_integer(unsigned(el2_floor)));
+    report "||Elevador 3: " & integer'image(to_integer(unsigned(el3_floor)));
+
     -- Test 2: Mixed calls
     report "Chamada UP no andar 2, DOWN nos andares 4 e 9";
     -- press_button(out_kb_down, (4 => '1', 9 => '1', others => '0'));
-    
+
     send_requests(
       out_kb_up_stim => (2 => '1', others => '0'),
       out_kb_down_stim => (4 => '1', 9 => '1', others => '0')
@@ -109,16 +112,24 @@ begin
     wait for CLK_PERIOD * 40;
 
     report "=== TESTE 3: Chamadas Internas e Externas ===";
+    report "||Elevador 1: " & integer'image(to_integer(unsigned(el1_floor)));
+    report "||Elevador 2: " & integer'image(to_integer(unsigned(el2_floor)));
+    report "||Elevador 3: " & integer'image(to_integer(unsigned(el3_floor)));
 
     -- Test 3: Internal and external calls in same clock cycle
-    report "Chamadas Internas: EL1[1,5], EL2[3,8], EL3[4, 3]";
+    report "Chamadas Internas: EL1[3,9], EL3[4, 12]";
     send_requests(
         el1_kb_stim => (3 => '1', 9 => '1', others => '0'),
         el3_kb_stim => (4 => '1', 12 => '1', others => '0')
     );
     wait for CLK_PERIOD * 10;
 
-    report "Chamadas Externas: UP[2,10], DOWN[7,9]";
+    report "Chamadas Externas: UP[2, 14], DOWN[5, 18]";
+
+    report "||Elevador 1: " & integer'image(to_integer(unsigned(el1_floor)));
+    report "||Elevador 2: " & integer'image(to_integer(unsigned(el2_floor)));
+    report "||Elevador 3: " & integer'image(to_integer(unsigned(el3_floor)));
+
     send_requests(
         out_kb_up_stim => (2 => '1',  14 => '1', others => '0'),
         out_kb_down_stim => (5 => '1', 18 => '1', others => '0')
@@ -126,8 +137,8 @@ begin
 
 wait for CLK_PERIOD * 500;
 
-    
-    report "=== Testes Completos===";
+
+    report "=== Testes Completos==="; 
 
     -- Stop simulation (único driver)
     simulation_finished <= true;
