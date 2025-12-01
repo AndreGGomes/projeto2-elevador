@@ -60,7 +60,7 @@ begin
   procedure send_requests(
       el1_kb_stim, el2_kb_stim, el3_kb_stim : in std_logic_vector(31 downto 0) := (others => '0');
       out_kb_up_stim, out_kb_down_stim      : in std_logic_vector(31 downto 0) := (others => '0');
-      duration                              : in natural := 2
+      duration                              : in natural := 1
   ) is
   begin
     el1_kb <= el1_kb_stim;

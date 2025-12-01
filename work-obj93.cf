@@ -1,57 +1,57 @@
 v 4
-file . "src/testbenches/top_tb.vhd" "0494998657ee9ae21efce3c8fb2f45ee80bafa16" "20251129231649.288":
-  entity top_tb at 1( 0) + 0 on 194;
-  architecture sim of top_tb at 8( 100) + 0 on 195;
-file . "src/external_controller/scheduler.vhd" "7d82fff5172e365ab191bd932599a2455b4db182" "20251129231649.276":
-  entity scheduler at 1( 0) + 0 on 190;
-  architecture arch of scheduler at 33( 1173) + 0 on 191;
-file . "src/external_controller/scheduler_pc.vhd" "b89e545ae99657d4e94b4e2f9ac9912070be8324" "20251129231649.266":
-  entity scheduler_pc at 1( 0) + 0 on 186;
-  architecture arch of scheduler_pc at 12( 218) + 0 on 187;
-file . "src/external_controller/call_catcher.vhd" "b43dcb8e1cac967521354c4b1313cec6141d7618" "20251129231649.254":
-  entity call_catcher at 1( 0) + 0 on 182;
-  architecture arch of call_catcher at 21( 655) + 0 on 183;
-file . "src/external_controller/score_calc.vhd" "e7588676cb1fe815ef861229523c057306ebfadb" "20251129231649.241":
-  entity score_calc at 1( 0) + 0 on 178;
-  architecture arch of score_calc at 18( 578) + 0 on 179;
-file . "src/internal_controller/intention_manager.vhd" "9ab32333e65027ab7a1e8cad49c39bd83cd74d14" "20251129231649.228":
-  entity intention_manager at 1( 0) + 0 on 174;
-  architecture arch of intention_manager at 14( 314) + 0 on 175;
-file . "src/internal_controller/call_manager.vhd" "44a060318299a49774e336fd1a62495e78e3b434" "20251129231649.217":
-  entity call_manager at 1( 0) + 0 on 170;
-  architecture arch of call_manager at 22( 768) + 0 on 171;
-file . "src/internal_controller/next_floor_calculator.vhd" "198ecbbd512ca3c804491e1159f31ee1b41a862c" "20251129231649.202":
-  entity next_floor_calculator at 1( 0) + 0 on 166;
-  architecture arch of next_floor_calculator at 14( 325) + 0 on 167;
-file . "src/internal_controller/elevator/door.vhd" "8cce6564b7c1ac362b2faad175030d2abe206fb0" "20251129231649.190":
-  entity door at 1( 0) + 0 on 162;
-  architecture arch of door at 13( 213) + 0 on 163;
-file . "src/utils/custom_types.vhd" "0d04cc7f98aaede2e478a939d63ee098ea6f7421" "20251129231649.180":
-  package custom_types at 1( 0) + 0 on 159;
-file . "src/internal_controller/elevator/move_counter.vhd" "b0b163caf8f72f6f1b2cdb38ea32c075ef11749d" "20251129231649.185":
-  entity move_counter at 1( 0) + 0 on 160;
-  architecture arch of move_counter at 16( 337) + 0 on 161;
-file . "src/internal_controller/elevator/simple_elevator.vhd" "3e07b1320bea1333999fe33685f49cc1a117b224" "20251129231649.197":
-  entity simple_elevator at 1( 0) + 0 on 164;
-  architecture arch of simple_elevator at 18( 464) + 0 on 165;
-file . "src/internal_controller/at_destination_calculator.vhd" "f5f271592042bd317891357b59742e1eabff295f" "20251129231649.208":
-  entity at_destination_calculator at 1( 0) + 0 on 168;
-  architecture arch of at_destination_calculator at 17( 513) + 0 on 169;
-file . "src/internal_controller/call_analyzer.vhd" "74e46c5fb557a24d168512ed5c68523edddd2d14" "20251129231649.223":
-  entity call_analyzer at 1( 0) + 0 on 172;
-  architecture arch of call_analyzer at 13( 312) + 0 on 173;
-file . "src/internal_controller/in_controller.vhd" "561988b96204ad429557ea2de2fb3081b71a45a3" "20251129231649.235":
-  entity in_controller at 1( 0) + 0 on 176;
-  architecture arch of in_controller at 20( 669) + 0 on 177;
-file . "src/external_controller/single_call_catcher.vhd" "1285121fd20f960f0ea818107f2438607de4c5f1" "20251129231649.248":
-  entity single_call_catcher at 1( 0) + 0 on 180;
-  architecture arch of single_call_catcher at 18( 581) + 0 on 181;
-file . "src/external_controller/call_dispatcher.vhd" "1a12d731290ec52766e4a460e5d77255830b94a2" "20251129231649.260":
-  entity call_dispatcher at 1( 0) + 0 on 184;
-  architecture arch of call_dispatcher at 22( 852) + 0 on 185;
-file . "src/external_controller/scheduler_po.vhd" "b6e05df7498d85d252a410dc2d1934ad1f214a49" "20251129231649.271":
-  entity scheduler_po at 1( 0) + 0 on 188;
-  architecture arch of scheduler_po at 28( 1005) + 0 on 189;
-file . "src/top.vhd" "f0914391b72ba8f34c205b1d65cfc6053f24cc38" "20251129231649.282":
-  entity top at 1( 0) + 0 on 192;
-  architecture arch of top at 17( 515) + 0 on 193;
+file . "src/testbenches/top_tb.vhd" "8e886a82093eaacd25278b7c1a812b8791d7c94d" "20251201212617.663":
+  entity top_tb at 1( 0) + 0 on 342;
+  architecture sim of top_tb at 8( 100) + 0 on 343;
+file . "src/external_controller/scheduler.vhd" "7d82fff5172e365ab191bd932599a2455b4db182" "20251201212617.645":
+  entity scheduler at 1( 0) + 0 on 338;
+  architecture arch of scheduler at 33( 1173) + 0 on 339;
+file . "src/external_controller/scheduler_pc.vhd" "b89e545ae99657d4e94b4e2f9ac9912070be8324" "20251201212617.627":
+  entity scheduler_pc at 1( 0) + 0 on 334;
+  architecture arch of scheduler_pc at 12( 218) + 0 on 335;
+file . "src/external_controller/call_catcher.vhd" "b43dcb8e1cac967521354c4b1313cec6141d7618" "20251201212617.609":
+  entity call_catcher at 1( 0) + 0 on 330;
+  architecture arch of call_catcher at 21( 655) + 0 on 331;
+file . "src/external_controller/score_calc.vhd" "e7588676cb1fe815ef861229523c057306ebfadb" "20251201212617.590":
+  entity score_calc at 1( 0) + 0 on 326;
+  architecture arch of score_calc at 18( 578) + 0 on 327;
+file . "src/internal_controller/intention_manager.vhd" "9ab32333e65027ab7a1e8cad49c39bd83cd74d14" "20251201212617.570":
+  entity intention_manager at 1( 0) + 0 on 322;
+  architecture arch of intention_manager at 14( 314) + 0 on 323;
+file . "src/internal_controller/call_manager.vhd" "44a060318299a49774e336fd1a62495e78e3b434" "20251201212617.552":
+  entity call_manager at 1( 0) + 0 on 318;
+  architecture arch of call_manager at 22( 768) + 0 on 319;
+file . "src/internal_controller/next_floor_calculator.vhd" "198ecbbd512ca3c804491e1159f31ee1b41a862c" "20251201212617.532":
+  entity next_floor_calculator at 1( 0) + 0 on 314;
+  architecture arch of next_floor_calculator at 14( 325) + 0 on 315;
+file . "src/internal_controller/elevator/door.vhd" "8cce6564b7c1ac362b2faad175030d2abe206fb0" "20251201212617.515":
+  entity door at 1( 0) + 0 on 310;
+  architecture arch of door at 13( 213) + 0 on 311;
+file . "src/utils/custom_types.vhd" "0d04cc7f98aaede2e478a939d63ee098ea6f7421" "20251201212617.497":
+  package custom_types at 1( 0) + 0 on 307;
+file . "src/internal_controller/elevator/move_counter.vhd" "b0b163caf8f72f6f1b2cdb38ea32c075ef11749d" "20251201212617.507":
+  entity move_counter at 1( 0) + 0 on 308;
+  architecture arch of move_counter at 16( 337) + 0 on 309;
+file . "src/internal_controller/elevator/simple_elevator.vhd" "3e07b1320bea1333999fe33685f49cc1a117b224" "20251201212617.523":
+  entity simple_elevator at 1( 0) + 0 on 312;
+  architecture arch of simple_elevator at 18( 464) + 0 on 313;
+file . "src/internal_controller/at_destination_calculator.vhd" "f5f271592042bd317891357b59742e1eabff295f" "20251201212617.542":
+  entity at_destination_calculator at 1( 0) + 0 on 316;
+  architecture arch of at_destination_calculator at 17( 513) + 0 on 317;
+file . "src/internal_controller/call_analyzer.vhd" "74e46c5fb557a24d168512ed5c68523edddd2d14" "20251201212617.561":
+  entity call_analyzer at 1( 0) + 0 on 320;
+  architecture arch of call_analyzer at 13( 312) + 0 on 321;
+file . "src/internal_controller/in_controller.vhd" "561988b96204ad429557ea2de2fb3081b71a45a3" "20251201212617.581":
+  entity in_controller at 1( 0) + 0 on 324;
+  architecture arch of in_controller at 20( 669) + 0 on 325;
+file . "src/external_controller/single_call_catcher.vhd" "1285121fd20f960f0ea818107f2438607de4c5f1" "20251201212617.599":
+  entity single_call_catcher at 1( 0) + 0 on 328;
+  architecture arch of single_call_catcher at 18( 581) + 0 on 329;
+file . "src/external_controller/call_dispatcher.vhd" "1a12d731290ec52766e4a460e5d77255830b94a2" "20251201212617.619":
+  entity call_dispatcher at 1( 0) + 0 on 332;
+  architecture arch of call_dispatcher at 22( 852) + 0 on 333;
+file . "src/external_controller/scheduler_po.vhd" "b6e05df7498d85d252a410dc2d1934ad1f214a49" "20251201212617.636":
+  entity scheduler_po at 1( 0) + 0 on 336;
+  architecture arch of scheduler_po at 28( 1005) + 0 on 337;
+file . "src/top.vhd" "f0914391b72ba8f34c205b1d65cfc6053f24cc38" "20251201212617.653":
+  entity top at 1( 0) + 0 on 340;
+  architecture arch of top at 17( 515) + 0 on 341;
