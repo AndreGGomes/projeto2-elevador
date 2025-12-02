@@ -31,7 +31,6 @@ architecture arch of scheduler_po is
   signal el2_caught_up, el2_caught_down : call_vector((2**w)-1 downto 0);
   signal el3_caught_up, el3_caught_down : call_vector((2**w)-1 downto 0);
 
-  -- FIXED: Explicit ranges added to match Entity exactly
   component call_catcher
     generic (w : natural := 5);
     port (
@@ -46,7 +45,6 @@ architecture arch of scheduler_po is
     );
   end component;
 
-  -- FIXED: Explicit ranges added here too
   component call_dispatcher
     generic (w : natural := 5);
     port (
@@ -65,7 +63,6 @@ architecture arch of scheduler_po is
   end component;
 
 begin
-  -- Input Mixing
   gen_inputs : for i in 0 to ((2**w)-1) generate
     going_up_calls(i).score      <= (others => '0');
     going_up_calls(i).respondent <= "00";
@@ -76,7 +73,6 @@ begin
     going_down_calls(i).active     <= going_down(i) or rej_down_in(i).active;
   end generate;
 
-  -- Daisy Chain
   el1 : call_catcher generic map (w => w)
     port map (el1_floor, el1_status, el1_intention, "01", 
               going_up_calls, going_down_calls, el1_caught_up, el1_caught_down);
@@ -87,7 +83,6 @@ begin
     port map (el3_floor, el3_status, el3_intention, "11", 
               el2_caught_up, el2_caught_down, el3_caught_up, el3_caught_down);
 
-  -- Dispatcher
   disp : call_dispatcher generic map (w => w)
     port map (
       scan_direction    => scan_direction,

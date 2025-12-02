@@ -8,7 +8,7 @@ end top_tb;
 architecture sim of top_tb is
   constant w : natural := 5;
   constant CLK_PERIOD : time := 10 ns;
-  constant SIMULATION_TIME : time := 2000 ns;  -- Tempo máximo de simulação
+  constant SIMULATION_TIME : time := 2000 ns;
 
   component top
     generic (w : natural := 5);
@@ -45,7 +45,6 @@ begin
       el1_status => el1_status, el2_status => el2_status, el3_status => el3_status
     );
 
-  -- Clock generation
   clk_process : process
   begin
     while not simulation_finished loop
@@ -55,7 +54,6 @@ begin
     wait;
   end process;
 
-  -- Simulation Process (único driver para simulation_finished)
   stim_proc: process
   procedure send_requests(
       el1_kb_stim, el2_kb_stim, el3_kb_stim : in std_logic_vector(31 downto 0) := (others => '0');
@@ -76,7 +74,6 @@ begin
     out_kb_down <= (others => '0');
   end procedure;
 
-    -- Variável para controle de timeout
     variable start_time : time;
     
   begin
@@ -86,13 +83,13 @@ begin
     
     report "=== TESTE 1: Chamadas para Subir e Descer ===";
     
-    -- Test 1: Press 'UP' button at Floors 4 and 6
+    -- Teste 1: Chamadas para subir nos andares 4 e 6
     report "Chamada UP nos andares 0, 4 e 6";
     send_requests(
       out_kb_up_stim => (0 => '1', 4 => '1', 6 => '1', others => '0'),
       out_kb_down_stim => (others => '0')
     );
-    -- Wait for elevator to potentially reach one of the floors
+
     wait for CLK_PERIOD * 20;
     
     report "=== TESTE 2: Chamadas externas simples ===";
@@ -100,9 +97,8 @@ begin
     report "||Elevador 2: " & integer'image(to_integer(unsigned(el2_floor)));
     report "||Elevador 3: " & integer'image(to_integer(unsigned(el3_floor)));
 
-    -- Test 2: Mixed calls
+    -- Teste 2: Chamadas misturadas
     report "Chamada UP no andar 2, DOWN nos andares 4 e 9";
-    -- press_button(out_kb_down, (4 => '1', 9 => '1', others => '0'));
 
     send_requests(
       out_kb_up_stim => (2 => '1', others => '0'),
@@ -116,7 +112,7 @@ begin
     report "||Elevador 2: " & integer'image(to_integer(unsigned(el2_floor)));
     report "||Elevador 3: " & integer'image(to_integer(unsigned(el3_floor)));
 
-    -- Test 3: Internal and external calls in same clock cycle
+    -- Teste 3: Chamadas internas e externas intercaladas
     report "Chamadas Internas: EL1[3,9], EL3[4, 12]";
     send_requests(
         el1_kb_stim => (3 => '1', 9 => '1', others => '0'),
@@ -140,12 +136,10 @@ wait for CLK_PERIOD * 500;
 
     report "=== Testes Completos==="; 
 
-    -- Stop simulation (único driver)
     simulation_finished <= true;
     wait;
   end process;
 
-  -- Monitoring process to track elevator states
   monitor_process: process
     variable last_el1_floor : integer := -1;
     variable last_el2_floor : integer := -1;
@@ -168,7 +162,6 @@ wait for CLK_PERIOD * 500;
       last_el3_floor := to_integer(unsigned(el3_floor));
     end if;
     
-    -- Exit when simulation is finished
     if simulation_finished then
       wait;
     end if;

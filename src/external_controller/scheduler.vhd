@@ -45,7 +45,6 @@ architecture arch of scheduler is
     );
   end component;
 
-  -- FIXED: Explicit ranges added to match scheduler_po Entity
   component scheduler_po
     generic (w : natural := 5);
     port (
